@@ -1,0 +1,11 @@
+<div>
+  Products added: {{products.length}}
+</div>
+<div>
+  Total Amount: {{TotalAmount}}
+</div>
+
+<ng-container *ngFor="let item of products">
+  <app-product [product]="item"></app-product>
+  <button (click)="removeProduct(item.id!)">Remove</button>
+</ng-container>

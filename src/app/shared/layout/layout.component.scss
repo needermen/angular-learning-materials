@@ -1,0 +1,18 @@
+.navigation {
+  height: 100px;
+  width: 100%;
+  background-color: burlywood;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .item {
+    width: 80px;
+    margin-left: 20px;
+
+    &:last-child {
+      float: right;
+      margin-left: auto;
+    }
+  }
+}

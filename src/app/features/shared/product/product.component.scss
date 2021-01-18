@@ -1,0 +1,20 @@
+.container {
+  width: 200px;
+  .pic {
+    clear: both;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+  }
+  .name {
+    float: left;
+  }
+
+  .price {
+    float: right;
+  }
+
+  button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+.container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .item {
+    width: 50%;
+    margin-left: 20px;
+  }
+}
