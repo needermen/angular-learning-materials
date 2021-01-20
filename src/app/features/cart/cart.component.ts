@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { until } from 'protractor';
-import { of, Subject, Subscription } from 'rxjs';
-import { map, mergeMap, reduce, scan, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { CartCountService } from './../cart-count-.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { from, Subject, Subscription } from 'rxjs';
+import { map, scan, takeUntil, tap, reduce } from 'rxjs/operators';
 import { Product } from '../products/entity/product';
-import { $addToCart, $productCountInCart, $removeFromCart } from '../shop/subject';
+import { $addToCart, $removeFromCart } from '../shop/subject';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit, OnDestroy {
   TotalAmount = 0;
@@ -17,33 +17,41 @@ export class CartComponent implements OnInit, OnDestroy {
 
   private readonly $destroy = new Subject();
 
-  constructor() { }
+  constructor(private cartCountService: CartCountService) { }
 
   ngOnInit(): void {
     this.sub = $addToCart.pipe(
-        takeUntil(this.$destroy),
-        map(product => {
-          this.products.push(product);
-          return product.price;
-        }),
-        scan(
+      takeUntil(this.$destroy),
+      map(product => {
+        this.products.push(product);
+        return product.price;
+      }),
+      tap((value) => {
+        this.TotalAmount = this.TotalAmount + value
+      }),
+      tap((value) => {
+        this.cartCountService.next(this.products.length);
+      })
+    ).subscribe();
+
+    from([1, 2, 3, 4, 5, 56, 6, 7, 78, 8, 89, 9, 5, 4, 4])
+      .pipe(
+        map(() => 0),
+        reduce(
           (acc, value) => {
-            console.log(value);
             return acc + value!;
-          }, 0),
-        tap((value) => {
-          console.log(value);
-          this.TotalAmount = value
-        }),
-        tap(() => {
-          $productCountInCart.next(this.products.length);
-        })
-      ).subscribe();
+          }, 0)).subscribe((value) => {
+            console.log(value);
+          })
   }
 
   removeProduct(id: number) {
     $removeFromCart.next(this.products.find(p => p.id == id));
     this.products = this.products.filter(p => p.id != id);
+    this.cartCountService.next(this.products.length)
+  }
+
+  increase() {
   }
 
   ngOnDestroy(): void {

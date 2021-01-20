@@ -26,7 +26,9 @@ export class ShopComponent implements OnInit {
     // );
 
     this.htpClient.get("https://api.exchangeratesapi.io/latest?base=USD&symbols=EUR")
-        .subscribe(value => console.log(value));
+      .subscribe(value => {
+        // console.log(value)
+      });
 
   }
 }

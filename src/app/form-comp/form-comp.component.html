@@ -1,35 +1,47 @@
-
 <h2> Reactive from</h2>
 
 <form [formGroup]="form" (submit)="onSubmit()">
-    <h3>form status {{ form.status }}</h3>
-    <input formControlName="email" type="email" placeholder="email">
-    <ng-container formGroupName="passwordGroup">
-        <input formControlName="password" type="password" placeholder="password">
-        <input formControlName="confirmPassword" type="password" placeholder="confirm password">
+  <h3>form status {{ form.status }}</h3>
+  <input formControlName="email" type="email" placeholder="email">
+  <ng-container *ngIf="form.get('email').errors && (form.get('email').touched || submitted)">
+    <ng-container *ngIf="form.get('email').errors?.required">
+      <span>შეყვანა აუცილებელი</span>
     </ng-container>
-    <div *ngIf="this.form.controls.passwordGroup.errors">
-        password and confirm password should be the same
-    </div>
-    <input type="text" formControlName="nickName" placeholder="nick name">
-    <button type="submit">Submit</button>
-</form>
+    <ng-container *ngIf="form.get('email').errors?.email">
+      <span>ფორმატი არასწორია</span>
+    </ng-container>
+  </ng-container>
+  <ng-container formGroupName="passwordGroup">
+    <input formControlName="confirmPassword" type="password" placeholder="confirm password">
+  </ng-container>
 
+  <ng-container formGroupName="passwordGroup">
+    <input formControlName="password" type="password" placeholder="password">
+  </ng-container>
+
+  <div *ngIf="this.form.controls.passwordGroup.errors">
+    password and confirm password should be the same
+  </div>
+  <input type="text" formControlName="nickName" placeholder="nick name">
+
+  <input *ngIf="form.get('age')" type="text" formControlName="age" placeholder="age">
+
+  <button type="submit" (submit)="onSubmit()">Submit</button>
+</form>
 
 <h2> Template form</h2>
 
 <form #testform="ngForm" (submit)="onTemplateFormSubmit()">
-    <h3>form status {{ testform.status }}</h3>
-    <input [(ngModel)]="templateFrom.email" #emailRef="ngModel" name="email" type="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-    <div *ngIf="emailRef.errors && emailRef.errors.required">
-        email is required
-    </div>
-    <div *ngIf="emailRef.errors && emailRef.errors.pattern">
-        please enter correct email
-    </div>
-    <input [(ngModel)]="templateFrom.password" name="password" type="password" placeholder="password">
+  <h3>form status {{ testform.status }}</h3>
+  <input [(ngModel)]="templateFrom.email" #emailRef="ngModel" name="email" type="email" placeholder="email"
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+  <div *ngIf="emailRef.errors && emailRef.errors.required">
+    email is required
+  </div>
+  <div *ngIf="emailRef.errors && emailRef.errors.pattern">
+    please enter correct email
+  </div>
+  <input [(ngModel)]="templateFrom.password" name="password" type="password" placeholder="password">
 
-    <button [disabled]="testform.valid ? false : true" type="submit">Submit</button>
+  <button [disabled]="testform.valid ? false : true" type="submit">Submit</button>
 </form>
-
-

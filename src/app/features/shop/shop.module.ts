@@ -18,6 +18,7 @@ import { ProductListItemComponent } from '../products/product-list-item/product-
   imports: [
     CommonModule,
     HttpClientModule
-  ]
+  ],
+  providers: []
 })
 export class ShopModule { }

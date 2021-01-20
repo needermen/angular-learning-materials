@@ -13,6 +13,8 @@ import { LayoutComponent } from './layout/layout.component';
   imports: [
     CommonModule,
     RouterModule
+  ],
+  providers: [
   ]
 })
 export class SharedModule { }
