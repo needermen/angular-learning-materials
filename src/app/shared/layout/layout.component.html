@@ -1,6 +1,9 @@
 <div class="navigation">
   <div class="item">
-    <span>Shop</span>
+    <a [routerLink]="'shop'"> Rxjs </a>
+  </div>
+  <div class="item">
+    <a [routerLink]="'form'"> Forms </a>
   </div>
   <div class="item">
     Cart: {{productsCount | async}}

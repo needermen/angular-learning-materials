@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { LayoutComponent } from './layout/layout.component';
@@ -10,7 +11,8 @@ import { LayoutComponent } from './layout/layout.component';
     LayoutComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
