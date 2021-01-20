@@ -1,0 +1,15 @@
+{
+  "posts": [
+    { "id": 1, "title": "Post about hats" },
+    { "id": 2, "title": "Post about dogs" }
+  ],
+  "comments": [
+    { "id": 1, "body": "this hat is ugly", "postId": 1 },
+    { "id": 2, "body": "I love this hat", "postId": 1 },
+    { "id": 3, "body": "stupid dog", "postId": 2 },
+    { "id": 4, "body": "what a lovely dog", "postId": 2 }
+  ],
+  "profile": {
+    "name": "Ts.Ch"
+  }
+}
