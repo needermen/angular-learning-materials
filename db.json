@@ -1,15 +1,37 @@
 {
-  "posts": [
-    { "id": 1, "title": "Post about hats" },
-    { "id": 2, "title": "Post about dogs" }
-  ],
   "comments": [
-    { "id": 1, "body": "this hat is ugly", "postId": 1 },
-    { "id": 2, "body": "I love this hat", "postId": 1 },
-    { "id": 3, "body": "stupid dog", "postId": 2 },
-    { "id": 4, "body": "what a lovely dog", "postId": 2 }
+    { "id": 1, "body": "this hat is ugly", "productId": 1 },
+    { "id": 2, "body": "I love this shirt", "postId": 2 },
+    { "id": 3, "body": "shit color", "postId": 2 },
+    { "id": 4, "body": "do you have size L", "postId": 2 }
   ],
   "profile": {
     "name": "Ts.Ch"
-  }
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "ქუდი",
+      "price": 10.5,
+      "bgColor": "#dad93d"
+    },
+    {
+      "id": 2,
+      "name": "მაისური",
+      "price": 23,
+      "bgColor": "#fb7676"
+    },
+    {
+      "id": 3,
+      "name": "შარვალი",
+      "price": 45,
+      "bgColor": "#64b364"
+    },
+    {
+      "id": 4,
+      "name": "ჟაკეტი",
+      "price": 90,
+      "bgColor": "#8282de"
+    }
+  ]
 }
