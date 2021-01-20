@@ -1,6 +1,7 @@
 import { ShopComponent } from './features/shop/shop.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FormCompComponent } from './form-comp/form-comp.component';
 
 const routes: Routes = [
   {
@@ -8,6 +9,9 @@ const routes: Routes = [
   },
   {
     path: "shop", component: ShopComponent
+  },
+  {
+    path: "form", component: FormCompComponent
   },
 ];
 
