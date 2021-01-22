@@ -1,4 +1,4 @@
-import { Product } from '../../products/entity/product';
+import { Product } from '../../rxjs/products/entity/product';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({

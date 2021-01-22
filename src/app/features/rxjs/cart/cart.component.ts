@@ -1,9 +1,9 @@
-import { CartCountService } from './../cart-count-.service';
+import { CartCountService } from '../../cart-count-.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { from, Subject, Subscription } from 'rxjs';
 import { map, scan, takeUntil, tap, reduce } from 'rxjs/operators';
 import { Product } from '../products/entity/product';
-import { $addToCart, $removeFromCart } from '../shop/subject';
+import { $addToCart, $removeFromCart } from '../subject';
 
 @Component({
   selector: 'app-cart',

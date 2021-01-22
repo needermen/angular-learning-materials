@@ -1,4 +1,4 @@
-import { Product } from './../products/entity/product';
+import { Product } from './products/entity/product';
 import { BehaviorSubject, ReplaySubject, Subject } from "rxjs";
 
 export const $addToCart = new ReplaySubject<Product>();

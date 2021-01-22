@@ -1,17 +1,21 @@
-import { ShopComponent } from './features/shop/shop.component';
+import { ShopComponent } from './features/rxjs/shop.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormCompComponent } from './form-comp/form-comp.component';
+import { ProductListComponent } from './features/http/product-list/product-list.component';
 
 const routes: Routes = [
   {
-    path: "", redirectTo: "shop", pathMatch: 'full'
+    path: "", redirectTo: "rxjs", pathMatch: 'full'
   },
   {
-    path: "shop", component: ShopComponent
+    path: "rxjs", component: ShopComponent
   },
   {
     path: "form", component: FormCompComponent
+  },
+  {
+    path: "http", component: ProductListComponent
   },
 ];
 
