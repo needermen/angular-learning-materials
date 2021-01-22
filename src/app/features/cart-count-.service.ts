@@ -10,7 +10,7 @@ export class CartCountService {
   $countInCart = this.$productCountInCart.asObservable();
 
   constructor() {
-    console.log('created');
+    // console.log('created');
   }
 
   next(count: number) {

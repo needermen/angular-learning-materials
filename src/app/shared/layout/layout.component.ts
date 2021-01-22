@@ -26,5 +26,5 @@ export class LayoutComponent implements OnInit {
 }
 
 export function s() {
-  console.log('nexted')
+  // console.log('nexted')
 }

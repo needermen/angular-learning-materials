@@ -1,9 +1,9 @@
 {
   "comments": [
     { "id": 1, "body": "this hat is ugly", "productId": 1 },
-    { "id": 2, "body": "I love this shirt", "postId": 2 },
-    { "id": 3, "body": "shit color", "postId": 2 },
-    { "id": 4, "body": "do you have size L", "postId": 2 }
+    { "id": 2, "body": "I love this shirt", "productId": 2 },
+    { "id": 3, "body": "shit color", "productId": 2 },
+    { "id": 4, "body": "do you have size L", "productId": 2 }
   ],
   "profile": {
     "name": "Ts.Ch"

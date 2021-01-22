@@ -41,7 +41,7 @@ export class CartComponent implements OnInit, OnDestroy {
           (acc, value) => {
             return acc + value!;
           }, 0)).subscribe((value) => {
-            console.log(value);
+            // console.log(value);
           })
   }
 
