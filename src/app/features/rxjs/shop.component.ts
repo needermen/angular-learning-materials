@@ -12,23 +12,5 @@ export class ShopComponent implements OnInit {
   constructor(private htpClient: HttpClient) { }
 
   ngOnInit(): void {
-    // let obs = of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-    // let piped = obs.pipe(
-    //   retry(1),
-    //   // concatMap((value) => of(value).pipe(delay(2000))),
-    //   filter(value => value % 2 == 0),
-    //   tap(value => console.log(value)),
-    //   catchError((err) => {
-    //     console.log('error occured');
-    //     return err;
-    //   }),
-    //   finalize(() => { console.log('completed') })
-    // );
-
-    this.htpClient.get("https://api.exchangeratesapi.io/latest?base=USD&symbols=EUR")
-      .subscribe(value => {
-        // console.log(value)
-      });
-
   }
 }

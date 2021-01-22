@@ -2,13 +2,14 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { LayoutComponent } from './layout/layout.component';
+import {ProductComponent} from './product/product.component';
 
 
 
 @NgModule({
-  declarations: [LayoutComponent],
+  declarations: [LayoutComponent, ProductComponent],
   exports: [
-    LayoutComponent
+    LayoutComponent, ProductComponent
   ],
   imports: [
     CommonModule,

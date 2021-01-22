@@ -1,1 +1,35 @@
-<p>product-list works!</p>
+<div class="container">
+  <div class="item" *ngFor="let item of products | async">
+    <app-product [product]="item"></app-product>
+    <button class="half" (click)="select(item.id)">Update</button>
+    <button class="half" (click)="delete(item.id)">Delete</button>
+
+    <p>Comments: {{item.comments?.length}}</p>
+    <ng-container *ngFor="let comment of item.comments">
+      <p>{{comment.body}}}</p>
+    </ng-container>
+  </div>
+</div>
+<div class="container">
+  <div class="item">
+    <button (click)="createOrEditMode=true">Create</button>
+  </div>
+</div>
+
+<div class="container">
+  <ng-container *ngIf="createOrEditMode">
+    <div class="item">
+      <span>Create Product</span>
+      <form [formGroup]="formGroup">
+        <p>name</p>
+        <input type="text" formControlName="name"/>
+        <p>price</p>
+        <input type="number" formControlName="price"/>
+        <p>color</p>
+        <input type="color" formControlName="bgColor"/>
+        <br>
+        <button (click)="createOrUpdate()">save</button>
+      </form>
+    </div>
+  </ng-container>
+</div>

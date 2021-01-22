@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://my-json-server.typicode.com/needermen/angular-learning-materials/'
+  url: 'http://localhost:3000/'
 };
 
 /*

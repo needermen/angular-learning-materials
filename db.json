@@ -1,9 +1,25 @@
 {
   "comments": [
-    { "id": 1, "body": "this hat is ugly", "productId": 1 },
-    { "id": 2, "body": "I love this shirt", "productId": 2 },
-    { "id": 3, "body": "shit color", "productId": 2 },
-    { "id": 4, "body": "do you have size L", "productId": 2 }
+    {
+      "id": 1,
+      "body": "this hat is ugly",
+      "productId": 1
+    },
+    {
+      "id": 2,
+      "body": "I love this shirt",
+      "productId": 2
+    },
+    {
+      "id": 3,
+      "body": "shit color",
+      "productId": 2
+    },
+    {
+      "id": 4,
+      "body": "do you have size L",
+      "productId": 2
+    }
   ],
   "profile": {
     "name": "Ts.Ch"
@@ -16,22 +32,28 @@
       "bgColor": "#dad93d"
     },
     {
-      "id": 2,
       "name": "მაისური",
-      "price": 23,
-      "bgColor": "#fb7676"
+      "bgColor": "#fb7676",
+      "price": 20,
+      "id": 2
     },
     {
-      "id": 3,
       "name": "შარვალი",
+      "bgColor": "#64b364",
       "price": 45,
-      "bgColor": "#64b364"
+      "id": 3
     },
     {
-      "id": 4,
-      "name": "ჟაკეტი",
-      "price": 90,
-      "bgColor": "#8282de"
+      "name": "ღვინო",
+      "bgColor": "#7fad91",
+      "price": 34,
+      "id": 6
+    },
+    {
+      "name": "მანქანა",
+      "bgColor": "#646f2f",
+      "price": 5000,
+      "id": 7
     }
   ]
 }

@@ -1,7 +1,7 @@
 import { ShopComponent } from './features/rxjs/shop.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormCompComponent } from './form-comp/form-comp.component';
+import { FormCompComponent } from './features/form-comp/form-comp.component';
 import { ProductListComponent } from './features/http/product-list/product-list.component';
 
 const routes: Routes = [

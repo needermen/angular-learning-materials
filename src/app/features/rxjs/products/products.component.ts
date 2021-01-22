@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { $addToCart } from '../subject';
-import { Product } from './entity/product';
+import {ChangeDetectorRef, Component, OnInit, PipeTransform} from '@angular/core';
+import {$addToCart} from '../subject';
+import {Product} from './entity/product';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../../environments/environment';
+import {async, Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
+import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-products',
@@ -8,53 +13,23 @@ import { Product } from './entity/product';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  bgColors = ['#dad93d', '#fb7676', '#64b364', '#8282de']
-  products: Array<Product> = [
-    {
-      id: 1,
-      name: "ქუდი",
-      price: 10.5,
-      bgColor: this.generateColor()
-    },
-    {
-      id: 2,
-      name: "მაისური",
-      price: 23,
-      bgColor: this.generateColor()
-    },
-    {
-      id: 3,
-      name: "შარვალი",
-      price: 45,
-      bgColor: this.generateColor()
-    },
-    {
-      id: 4,
-      name: "ჟაკეტი",
-      price: 90,
-      bgColor: this.generateColor()
-    }
-  ];
+  private _products: Product[];
+  products: Observable<Product[]>;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private http: HttpClient) {
   }
 
-  private generateColor() {
-    return this.bgColors[Math.floor(Math.random() * 4)];
+  ngOnInit(): void {
+    this.products = this.http.get<Product[]>(environment.url + 'products')
+      .pipe(
+        tap(products => this._products = products),
+      );
   }
 
   addToCart(id: number) {
-    this.reloadProduct(id);
-
     $addToCart.next(
-      this.products.find(p => p.id == id)
+      this._products.find(p => p.id == id)
     );
-  }
-
-  reloadProduct(id: number) {
-
   }
 
 }

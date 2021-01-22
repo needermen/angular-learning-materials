@@ -6,8 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ShopModule } from './features/rxjs/shop.module';
-import { FormCompComponent } from './form-comp/form-comp.component';
+import { FormCompComponent } from './features/form-comp/form-comp.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from './features/http/http.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     ShopModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
