@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {Product} from '../../rxjs/products/entity/product';
-import {map, mergeMap, switchMap, tap} from 'rxjs/operators';
+import {concatMap, delay, map, mergeMap, switchMap, tap} from 'rxjs/operators';
 import {from} from 'rxjs';
 
 @Component({
@@ -22,15 +22,19 @@ export class ProductListComponent implements OnInit {
       .pipe(
         (tap(products => console.log(products))),
         switchMap(products => from(products)),
-        (tap(product => console.log(product))),
-        mergeMap(product => {
+        concatMap(product => {
           return this.http.get<any[]>(environment.url + 'comments')
             .pipe(
-              map(comments => comments.filter(c => c.productId === product.id
-              ))
+              map(comments => {
+                return {
+                  ...product,
+                  comments: comments.filter(c => c.productId === product.id || c.postId === product.id)
+                } as Product;
+              }),
+              delay(Math.random() * 1000)
             );
         }),
-        (tap(comments => console.log(comments))),
+        (tap(product => console.log(product))),
       ).subscribe();
   }
 
