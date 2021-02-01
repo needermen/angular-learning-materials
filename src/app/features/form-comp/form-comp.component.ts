@@ -21,7 +21,7 @@ export class FormCompComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      'email': ['', [Validators.required, Validators.email]],
+      'email': [''],
       'passwordGroup': this.fb.group(
         {
           'password': ['', Validators.required],
@@ -30,7 +30,7 @@ export class FormCompComponent implements OnInit {
         {
           validators: this.confirmPasswordValidator
         }),
-      'nickName': ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]]
+      'nickName': ['']
     })
   }
 

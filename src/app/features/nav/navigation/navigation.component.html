@@ -1,0 +1,21 @@
+<p>navigation works!</p>
+
+
+{{ userId }}
+
+<ng-container *ngIf="userId">
+    <ul>
+        <li [routerLink]="['tab-one']" routerLinkActive="active" >tab 1</li>
+        <li [routerLink]="['tab-two']" routerLinkActive="active" >tab 2</li>
+        <li [routerLink]="['tab-three']" routerLinkActive="active" >tab 3</li>
+    </ul>
+    
+    <div class="tab-content">
+        <router-outlet></router-outlet>
+    </div>
+</ng-container>
+
+
+
+
+<!-- <button (click)="onNavigate()">Navigate</button> -->

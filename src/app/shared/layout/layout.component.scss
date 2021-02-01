@@ -7,8 +7,11 @@
   justify-content: flex-start;
 
   .item {
-    width: 80px;
+    // width: 80px;
     margin-left: 20px;
+    a.active {
+      font-weight: bold;
+    }
 
     &:last-child {
       float: right;

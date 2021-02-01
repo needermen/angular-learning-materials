@@ -1,12 +1,18 @@
 <div class="navigation">
   <div class="item">
-    <a [routerLink]="'rxjs'"> Rxjs </a>
+    <a [routerLink]="'rxjs'" routerLinkActive="active" > Rxjs </a>
   </div>
   <div class="item">
-    <a [routerLink]="'form'"> Forms </a>
+    <a [routerLink]="'form'" routerLinkActive="active"> Forms </a>
   </div>
   <div class="item">
-    <a [routerLink]="'http'"> Http </a>
+    <a [routerLink]="'http'" routerLinkActive="active"> Http </a>
+  </div>
+  <div class="item">
+    <a [routerLink]="['navigation']" routerLinkActive="active"> Navigation </a>
+  </div>
+  <div class="item">
+    <a [routerLink]="'some-animate'" routerLinkActive="active"> Animations </a>
   </div>
   <div class="item">
     Cart: {{productsCount | async}}
